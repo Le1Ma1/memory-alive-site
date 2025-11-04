@@ -1019,21 +1019,33 @@
     </p>
 
     <div class="form-card">
-      <!-- 把 FORM_ENDPOINT 換成你實際的表單端點 -->
-      <form id="memory-form" action="FORM_ENDPOINT" method="POST" enctype="multipart/form-data">
+      <form
+        id="memory-form"
+        action="https://formspree.io/f/mpwogjne"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <!-- 給 Formspree 用的隱藏欄位（收信主題 / 語系） -->
+        <input type="hidden" name="_subject" value="New Memory Alive request" />
+        <input type="hidden" name="_language" value="en" />
+
         <div class="form-grid">
           <div class="form-field">
             <label for="name">Your name or nickname</label>
             <input type="text" id="name" name="name" required />
           </div>
+
           <div class="form-field">
             <label for="email">Email <span>(for delivery)</span></label>
+            <!-- 這個 email 欄位會當作回覆對象 -->
             <input type="email" id="email" name="email" required />
           </div>
+
           <div class="form-field">
             <label for="telegram">Telegram handle <span>(optional)</span></label>
             <input type="text" id="telegram" name="telegram" placeholder="@yourhandle" />
           </div>
+
           <div class="form-field">
             <label for="who">
               Who is in this photo with you?
@@ -1073,14 +1085,17 @@
               Is there a story or memory you want to share about this moment?
               <span>(optional but very helpful)</span>
             </label>
-            <textarea id="story" name="story"
-                      placeholder="You can share anything you feel comfortable sharing. This helps me craft the animation with the right emotion."></textarea>
+            <textarea
+              id="story"
+              name="story"
+              placeholder="You can share anything you feel comfortable sharing. This helps me craft the animation with the right emotion."
+            ></textarea>
           </div>
 
           <div class="form-field full">
             <label for="photo">
               Upload one group photo
-              <span>(you and your loved one together, JPG/PNG, max 10 MB)</span>
+              <span>(you and your loved one together, JPG/PNG, recommended &lt; 5 MB)</span>
             </label>
             <input type="file" id="photo" name="photo" accept="image/*" required />
           </div>
@@ -1095,12 +1110,14 @@
         </div>
 
         <div class="form-footer">
-          <span id="error-message" class="error">Please complete all required fields and consent.</span>
+          <span id="error-message" class="error">
+            Please complete all required fields and consent.
+          </span>
           <button type="submit" class="btn-primary">
             Submit and start my free memory
           </button>
           <span>
-            After you submit, you will receive a confirmation email. Your preview is usually ready within about
+            After you submit, I will review your story and photo. Your preview is usually ready within about
             24 hours.
           </span>
         </div>
